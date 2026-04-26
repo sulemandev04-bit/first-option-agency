@@ -6,6 +6,7 @@ export interface Service {
   tag: string;
   icon: string; // Icon name from lucide-react
   image: string;
+  secondaryImage: string;
   benefits: string[];
   mainKeyword: string;
 }
@@ -19,6 +20,7 @@ export const SERVICES: Service[] = [
     fullDesc: "Our performance marketing services are designed for ambitious businesses that demand measurable results. We don't just focus on clicks; we focus on conversions, growth, and sustainable revenue. Our team manages your entire ad ecosystem across Google, Meta, and LinkedIn to ensure every dollar spent contributes to your bottom line.",
     icon: "Activity",
     image: "/service/performance-marketing-agency-roi.webp",
+    secondaryImage: "/service/insideservice/performance-marketing-roi-growth.png",
     benefits: [
       "Precision Audience Targeting",
       "Real-time ROI Tracking",
@@ -35,6 +37,7 @@ export const SERVICES: Service[] = [
     fullDesc: "Search Engine Optimization is the backbone of organic growth. We specialize in global SEO strategies, ensuring you rank for high-intent keywords that your customers are searching for across the globe. From technical SEO audits to advanced content engines, we help you dominate search results.",
     icon: "Search",
     image: "/service/advanced-seo-solutions-agency.webp",
+    secondaryImage: "/service/insideservice/advanced-seo-solutions-strategy.png",
     benefits: [
       "Keyword Research & Strategy",
       "On-Page Optimization",
@@ -51,6 +54,7 @@ export const SERVICES: Service[] = [
     fullDesc: "Stop chasing dead leads. Our global lead generation system uses advanced funnel architecture to qualify prospects before they ever reach your sales team. We help Manufacturers, IT Companies, and Healthcare providers worldwide get serious inquiries that turn into sales.",
     icon: "UserPlus",
     image: "/service/strategic-lead-generation-system.webp",
+    secondaryImage: "/service/insideservice/strategic-b2b-lead-generation.png",
     benefits: [
       "Qualified Lead Filtering",
       "Multi-Channel Acquisition",
@@ -67,6 +71,7 @@ export const SERVICES: Service[] = [
     fullDesc: "A website without a funnel is just a brochure. We build intelligent sales funnels that guide your prospects through the awareness, consideration, and decision stages automatically. Our funnels are optimized for high-ticket sales and complex buyer journeys.",
     icon: "Layout",
     image: "/service/high-converting-sales-funnel-expert.webp",
+    secondaryImage: "/service/insideservice/sales-funnel-optimization-conversion.png",
     benefits: [
       "Landing Page Optimization",
       "Email Marketing Automation",
@@ -83,6 +88,7 @@ export const SERVICES: Service[] = [
     fullDesc: "Content is only King if it converts. We create persuasive copy and creative assets that resonate with your target audience's pain points and desires. Our strategy ensures your brand is perceived as the ultimate authority in your industry.",
     icon: "FileText",
     image: "/service/authority-content-marketing-strategy.webp",
+    secondaryImage: "/service/insideservice/content-marketing-strategy-authority.png",
     benefits: [
       "Authority Building Content",
       "Persuasive Sales Copy",

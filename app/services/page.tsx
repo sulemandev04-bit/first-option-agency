@@ -2,6 +2,7 @@ import { SERVICES } from "@/app/constants/services";
 import Navbar from "@/app/components/Navbar";
 import ContactFooter from "@/app/components/ContactFooter";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import * as LucideIcons from "lucide-react";
 
@@ -20,7 +21,7 @@ export default function ServicesListPage() {
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "500px", backgroundImage: "radial-gradient(#E5E7EB 1px, transparent 1px)", backgroundSize: "32px 32px", opacity: 0.5, pointerEvents: "none" }} />
         
         <div className="container-main" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ textAlign: "center", marginBottom: "clamp(60px, 8vw, 80px)", maxWidth: 700, marginInline: "auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "clamp(60px, 8vw, 80px)", maxWidth: 800, marginInline: "auto" }}>
             <span className="section-badge" style={{ display: "inline-block", background: "rgba(124, 58, 237, 0.1)", color: "#7C3AED", padding: "6px 16px", borderRadius: 9999, fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.05em", marginBottom: 20 }}>
               OUR EXPERTISE
             </span>
@@ -33,51 +34,92 @@ export default function ServicesListPage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "clamp(24px, 3vw, 32px)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))", gap: "clamp(24px, 3vw, 40px)" }}>
             {SERVICES.map((service) => {
               const IconComp = (LucideIcons as any)[service.icon] || LucideIcons.Zap;
               return (
                 <Link key={service.slug} href={`/services/${service.slug}`} style={{ textDecoration: "none" }}>
                   <div className="service-card" style={{ 
                     background: "#FFFFFF", 
-                    borderRadius: "clamp(16px, 2vw, 24px)", 
-                    padding: "clamp(28px, 3.5vw, 40px)", 
+                    borderRadius: "clamp(20px, 2.5vw, 32px)", 
+                    padding: "clamp(20px, 2.5vw, 28px)", 
                     height: "100%", 
                     display: "flex",
                     flexDirection: "column",
                     border: "1px solid #E5E7EB", 
                     position: "relative",
-                    overflow: "hidden"
+                    overflow: "hidden",
+                    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)"
                   }}>
-                    {/* Top Section with Icon and Tag */}
-                    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 32 }}>
+                    
+                    {/* Service Image Container */}
+                    <div style={{ 
+                      position: "relative", 
+                      width: "100%", 
+                      height: "220px", 
+                      borderRadius: "clamp(12px, 1.5vw, 20px)",
+                      overflow: "hidden",
+                      marginBottom: 24
+                    }}>
+                      <Image 
+                        src={service.image} 
+                        alt={service.title}
+                        fill
+                        style={{ objectFit: "cover", transition: "transform 0.6s ease" }}
+                        className="service-img"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      {/* Overlapping Icon */}
                       <div style={{ 
-                        width: 64, 
-                        height: 64, 
-                        background: "linear-gradient(135deg, rgba(124,58,237,0.08) 0%, rgba(79,70,229,0.04) 100%)", 
-                        borderRadius: 16, 
+                        position: "absolute", 
+                        bottom: 12, 
+                        left: 12,
+                        width: 48, 
+                        height: 48, 
+                        background: "rgba(255, 255, 255, 0.95)", 
+                        backdropFilter: "blur(8px)",
+                        borderRadius: 12, 
                         display: "flex", 
                         alignItems: "center", 
                         justifyContent: "center", 
                         color: "#7C3AED",
-                        border: "1px solid rgba(124,58,237,0.1)"
+                        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                        zIndex: 2
                       }}>
-                        <IconComp size={28} strokeWidth={1.75} />
+                        <IconComp size={22} strokeWidth={1.5} />
                       </div>
+                      {/* Floating Tag */}
                       {service.tag && (
-                        <div style={{ background: "#F9FAFB", border: "1px solid #E5E7EB", color: "#4B5563", fontSize: "0.75rem", fontWeight: 600, padding: "6px 14px", borderRadius: 9999 }}>
+                        <div style={{ 
+                          position: "absolute",
+                          top: 12,
+                          right: 12,
+                          background: "rgba(17, 24, 39, 0.8)", 
+                          backdropFilter: "blur(8px)",
+                          color: "white", 
+                          fontSize: "0.7rem", 
+                          fontWeight: 700, 
+                          padding: "6px 12px", 
+                          borderRadius: 9999,
+                          letterSpacing: "0.05em",
+                          textTransform: "uppercase",
+                          zIndex: 2
+                        }}>
                           {service.tag}
                         </div>
                       )}
                     </div>
                     
                     {/* Content Block */}
-                    <h3 style={{ fontSize: "1.35rem", fontWeight: 700, color: "#111827", marginBottom: 16, letterSpacing: "-0.02em" }}>
-                      {service.title}
-                    </h3>
-                    <p style={{ color: "#6B7280", lineHeight: 1.65, fontSize: "0.95rem", flexGrow: 1, marginBottom: 36 }}>
-                      {service.shortDesc}
-                    </p>
+                    <div style={{ padding: "0 8px 12px 8px", flexGrow: 1 }}>
+                      <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "#111827", marginBottom: 12, letterSpacing: "-0.02em" }}>
+                        {service.title}
+                      </h3>
+                      <p style={{ color: "#6B7280", lineHeight: 1.6, fontSize: "0.95rem", marginBottom: 24 }}>
+                        {service.shortDesc}
+                      </p>
+                    </div>
 
                     {/* Bottom Action Area */}
                     <div style={{ 
@@ -86,13 +128,14 @@ export default function ServicesListPage() {
                       alignItems: "center", 
                       justifyContent: "space-between",
                       borderTop: "1px solid #F3F4F6",
-                      paddingTop: 24
+                      paddingTop: 20,
+                      paddingInline: 8
                     }}>
-                      <span style={{ color: "#7C3AED", fontWeight: 600, fontSize: "0.95rem", display: "flex", alignItems: "center", gap: 6 }}>
+                      <span style={{ color: "#7C3AED", fontWeight: 700, fontSize: "0.95rem", display: "flex", alignItems: "center", gap: 6 }}>
                         Explore Strategy
                       </span>
-                      <div style={{ width: 40, height: 40, borderRadius: "50%", background: "#F5F6F8", display: "flex", alignItems: "center", justifyContent: "center", color: "#4B5563" }} className="arrow-btn">
-                        <ArrowRight size={18} />
+                      <div style={{ width: 44, height: 44, borderRadius: "50%", background: "#F5F6F8", display: "flex", alignItems: "center", justifyContent: "center", color: "#4B5563" }} className="arrow-btn">
+                        <ArrowRight size={20} />
                       </div>
                     </div>
 
@@ -105,6 +148,14 @@ export default function ServicesListPage() {
       </main>
 
       <style dangerouslySetInnerHTML={{__html: `
+        .service-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          border-color: rgba(124, 58, 237, 0.2) !important;
+        }
+        .service-card:hover .service-img {
+          transform: scale(1.05);
+        }
         .service-card .arrow-btn {
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -114,6 +165,7 @@ export default function ServicesListPage() {
           transform: translateX(4px);
         }
       `}} />
+
 
       <ContactFooter />
     </>
