@@ -350,7 +350,7 @@ export default function ContactFooter() {
               alt="INFIPLUS"
               width={100}
               height={32}
-              style={{ objectFit: "contain", width: "auto", height: "auto", marginBottom: "clamp(12px, 1.8vw, 18px)" }}
+              style={{ objectFit: "contain", marginBottom: "clamp(12px, 1.8vw, 18px)" }}
             />
             <p
               style={{

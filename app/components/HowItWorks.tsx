@@ -226,6 +226,7 @@ function BenefitCard({ benefit, index }: { benefit: Benefit; index: number }) {
         padding: "clamp(18px, 2.8vw, 28px) clamp(16px, 2.2vw, 24px)",
         borderRadius: "clamp(14px, 2vw, 20px)",
         border: "1px solid",
+        transition: "all 0.4s cubic-bezier(0.16,1,0.3,1)",
         cursor: "pointer",
         overflow: "hidden",
       }}

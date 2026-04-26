@@ -83,7 +83,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
               <span style={{ position: "absolute", width: 7, height: 7, borderRadius: "50%", background: "var(--color-primary)", animation: "badge-ping 1.8s ease-out infinite" }} />
               <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--color-primary)", display: "inline-block" }} />
             </span>
-            ROI-Driven Performance Marketing Worldwide
+            ROI-Driven Performance Marketing
             <span style={{ background: "rgba(124,58,237,0.1)", borderRadius: "999px", padding: "1px 7px", fontSize: "0.55rem", fontWeight: 800, letterSpacing: "0.08em" }}>TOP RATED</span>
           </motion.div>
 

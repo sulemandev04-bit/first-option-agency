@@ -104,7 +104,7 @@ export default function Navbar({ onBookDemo = () => {} }: NavbarProps) {
           boxShadow: scrolled
             ? "0 4px 20px -4px rgba(124, 58, 237, 0.12)"
             : "none",
-          transition: "background 0.3s ease, border-bottom 0.3s ease, box-shadow 0.3s ease",
+          transition: "all 0.3s ease",
         }}
         className="navbar-content"
       >

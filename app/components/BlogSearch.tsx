@@ -109,14 +109,7 @@ export default function BlogSearch() {
                   overflow: "hidden",
                   borderBottom: "1px solid #F3F4F6"
                 }}>
-                  <Image 
-                    src={post.image} 
-                    alt={`${post.title} - Expertise by Faiz Ansari`} 
-                    fill 
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 400px"
-                    style={{ objectFit: "contain", padding: "12px", transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" }} 
-                    className="blog-thumb" 
-                  />
+                  <Image src={post.image} alt={`${post.title} - Expertise by Faiz Ansari`} fill style={{ objectFit: "contain", padding: "12px", transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" }} className="blog-thumb" />
                   <div style={{ 
                     position: "absolute", 
                     bottom: 16, 
