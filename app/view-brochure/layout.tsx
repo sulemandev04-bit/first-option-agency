@@ -1,13 +1,13 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best Marketing Strategy Roadmap | Performance Agency Gurgaon | First Option Agency",
-  description: "View the First Option Agency growth roadmap. Discover how we scale businesses through performance marketing, lead generation, and sales funnels.",
-  keywords: "Best Marketing Agency Gurgaon, ROI Marketing Delhi NCR, Lead Generation Agency India, Performance Marketing Gurgaon, Marketing Strategy Roadmap, Sales Funnel Optimization",
+  title: "Elite Marketing Strategy Roadmap | Performance Agency Gurgaon & India | First Option",
+  description: "Download the First Option Agency growth roadmap. Master performance marketing, high-conversion sales funnels, and ROI-driven lead generation for Doctors, Manufacturing, and IT.",
+  keywords: "Best Marketing Agency Gurgaon, ROI Marketing Delhi NCR, Lead Generation for Doctors India, Manufacturing Marketing Agency, IT SaaS Growth Agency, Performance Marketing Gurgaon, Sales Funnel Optimization India",
   openGraph: {
-    title: "First Option Agency - Professional Marketing Roadmap",
-    description: "Transform your business acquisition with India's most reliable performance agency. View our strategic roadmap.",
-    images: ["/brochure/roadmap.png"],
+    title: "First Option Agency - Strategy Roadmap for High-Growth Businesses",
+    description: "Architecting high-performance client acquisition systems. View our strategic roadmap to $10M+ scaling.",
+    images: ["/brochure/broucher.webp"],
   },
 };
 

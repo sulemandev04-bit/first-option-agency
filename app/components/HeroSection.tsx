@@ -38,7 +38,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
         {/* Background image */}
         <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
           <Image
-            src="/hero-bg-image.png"
+            src="/hero-bg-image.webp"
             alt="Advanced Marketing Interface"
             fill
             priority
@@ -184,7 +184,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
               <ArrowRight size={16} strokeWidth={2.5} />
             </motion.button>
 
-            <a href="https://wa.me/919958399157" target="_blank" style={{ textDecoration: "none" }}>
+            <a href="https://wa.me/918329494445" target="_blank" style={{ textDecoration: "none" }}>
               <motion.button
                 whileHover={{ background: "rgba(255,255,255,1)", transform: "translateY(-2px)", boxShadow: "0 10px 20px rgba(0,0,0,0.05)" }}
                 whileTap={{ scale: 0.97 }}

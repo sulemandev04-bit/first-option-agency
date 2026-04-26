@@ -138,7 +138,7 @@ export default function HowItWorks() {
 
           {/* CTA pill — desktop only */}
           <motion.a
-            href="https://wa.me/919958399157"
+            href="https://wa.me/918329494445"
             target="_blank"
             initial={{ opacity: 0, x: 12 }}
             whileInView={{ opacity: 1, x: 0 }}

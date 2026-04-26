@@ -27,10 +27,11 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { title: "Services", href: "#services" },
-    { title: "How It Works", href: "#how-it-works" },
-    { title: "Industries", href: "#industries" },
-    { title: "Contact", href: "#contact" },
+    { title: "Home", href: "/" },
+    { title: "Services", href: "/#services" },
+    { title: "How It Works", href: "/#how-it-works" },
+    { title: "Industries", href: "/#industries" },
+    { title: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -120,12 +121,12 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
             className="navbar-logo"
           >
             <Image 
-              src="/logo.png" 
+              src="/logo.webp" 
               alt="First Option Agency Logo" 
-              width={180} 
-              height={50} 
+              width={220} 
+              height={60} 
               priority
-              style={{ objectFit: "contain", width: "auto", height: "clamp(32px, 6vw, 42px)" }}
+              style={{ objectFit: "contain", width: "auto", height: "clamp(38px, 7vw, 48px)" }}
             />
           </motion.div>
 
@@ -156,7 +157,7 @@ export default function Navbar({ onBookDemo }: NavbarProps) {
 
             {/* Phone quick link */}
             <a
-              href="https://wa.me/919958399157"
+              href="https://wa.me/918329494445"
               target="_blank"
               style={{
                 display: "flex",

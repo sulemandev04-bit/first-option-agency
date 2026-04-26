@@ -17,31 +17,31 @@ export const metadata: Metadata = {
     "marketing agency, sales funnels, lead generation, conversion rate optimization, ROI marketing, performance marketing, First Option Agency",
   authors: [{ name: "First Option Agency" }],
   openGraph: {
-    title: "First Option Agency | We Build Systems That Turn Enquiries Into Paying Clients",
-    description: "Turn your business into a client-getting machine with predictable growth systems.",
+    title: "First Option Agency | Modern Performance Marketing & Scalable Acquisition Systems",
+    description: "Empowering Doctors, Manufacturers, and IT Companies with high-conversion marketing funnels and ROI-driven ad strategies.",
     url: "https://firstoptionagency.com",
     siteName: "First Option Agency",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
-        alt: "First Option Agency Marketing Systems",
+        alt: "First Option Agency - Performance Marketing",
       },
     ],
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "First Option Agency | Smart Funnels That Drive Customers",
     description: "We build systems that turn enquiries into paying clients.",
-    images: ["/og-image.png"],
+    images: ["/og-image.webp"],
   },
   icons: {
-    icon: "/meta-logo.png",
-    shortcut: "/meta-logo.png",
-    apple: "/meta-logo.png",
+    icon: "/meta-logo.webp",
+    shortcut: "/meta-logo.webp",
+    apple: "/meta-logo.webp",
   },
 };
 

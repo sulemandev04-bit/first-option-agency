@@ -19,21 +19,21 @@ export default function ContactFooter() {
     {
       icon: <Mail size={17} />,
       title: "Mail Us 24/7",
-      value: "hello@firstoptionagency.com",
-      href: "mailto:hello@firstoptionagency.com",
+      value: "firstoptionagency@gmail.com",
+      href: "mailto:firstoptionagency@gmail.com",
       color: "var(--color-primary)",
     },
     {
       icon: <Phone size={17} />,
       title: "Call / WhatsApp",
-      value: "+91 99583 99157",
-      href: "https://wa.me/919958399157",
+      value: "+91 832 949 4445",
+      href: "https://wa.me/918329494445",
       color: "#10B981",
     },
     {
       icon: <MapPin size={17} />,
       title: "Headquarters",
-      value: "DLF Phase 3, Gurgaon, Sector 24",
+      value: "Bandra Kurla Complex (BKC), Mumbai",
       href: "#",
       color: "var(--color-accent)",
     },
@@ -67,11 +67,11 @@ export default function ContactFooter() {
               style={{ marginBottom: "24px" }}
             >
                <Image 
-                src="/logo.png" 
+                src="/logo.webp" 
                 alt="First Option Agency Logo" 
-                width={180} 
-                height={50} 
-                style={{ objectFit: "contain", width: "auto", height: "clamp(34px, 6vw, 48px)" }}
+                width={320} 
+                height={84} 
+                style={{ objectFit: "contain", width: "auto", height: "clamp(56px, 10vw, 84px)" }}
               />
             </motion.div>
 
@@ -381,9 +381,9 @@ export default function ContactFooter() {
             </h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "clamp(8px, 1.2vw, 12px)" }}>
               <FooterLink text="Our Story" href="#hero" />
+              <FooterLink text="Strategy Roadmap" href="/view-brochure" />
               <FooterLink text="Contact Us" href="#contact" />
               <FooterLink text="Privacy Policy" href="#" />
-              <FooterLink text="Service Status" href="#" />
             </div>
           </div>
 

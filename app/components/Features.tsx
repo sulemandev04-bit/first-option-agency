@@ -44,13 +44,13 @@ const features = [
     icon: <FileText size={18} />
   },
   {
-    id: 5, image: "/service/5.png", tag: "Paid",
+    id: 5, image: "/service/5.webp", tag: "Paid",
     title: "Paid Media Management",
     description: "We create and manage targeted advertising campaigns that deliver measurable results across multiple platforms. Facebook & Instagram Ads, Google Ads & Display, and Retargeting campaigns.",
     icon: <Activity size={18} />
   },
   {
-    id: 6, image: "/service/6.png", tag: "Growth",
+    id: 6, image: "/service/6.webp", tag: "Growth",
     title: "CRM & Growth Operations",
     description: "We implement and optimise CRM systems that nurture leads through the entire customer journey. CRM implementation & setup, lead nurturing automation, and sales process optimisation.",
     icon: <Database size={18} />
@@ -354,16 +354,16 @@ function FeatureSection({ feature, index, onImageClick }: { feature: Feature; in
         {/* Card Shadow Wrapper */}
         <div style={{ filter: `drop-shadow(0 30px 50px rgba(124, 58, 237, 0.15))` }}>
           <div 
-            onClick={() => onImageClick(imagePath)}
-            className="feature-img-box group relative p-[20px] md:p-[32px] cursor-pointer transition-all duration-400 hover:scale-[1.02] overflow-hidden"
+            className="feature-img-box group relative p-[20px] md:p-[32px] overflow-hidden"
             style={{ 
               background: `linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%)`,
               borderRadius: '40px',
               border: `1.5px solid rgba(124, 58, 237, 0.35)`,
-              maxWidth: '100%'
+              maxWidth: '100%',
+              transition: 'all 0.4s ease'
             }}
           >
-            <div className="relative rounded-[24px] overflow-hidden bg-white shadow-inner">
+             <div className="relative rounded-[24px] overflow-hidden bg-white shadow-inner">
                <Image
                   src={imagePath}
                   alt={feature.title}
@@ -373,13 +373,6 @@ function FeatureSection({ feature, index, onImageClick }: { feature: Feature; in
                   loading={displayNum <= 2 ? "eager" : "lazy"}
                   priority={displayNum <= 2}
                 />
-                
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-400 bg-blue-600/5 backdrop-blur-[1px] flex items-center justify-center">
-                   <div className="bg-white/95 border border-black/5 shadow-2xl px-6 py-3 rounded-full text-blue-600 flex items-center gap-2.5 font-bold text-sm">
-                      <Maximize2 size={16} />
-                      Expand View
-                   </div>
-                </div>
             </div>
           </div>
         </div>
