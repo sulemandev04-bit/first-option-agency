@@ -12,18 +12,11 @@ interface NavbarProps {
 export default function Navbar({ onBookDemo = () => {} }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const updateScroll = () => setScrolled(window.scrollY > 20);
-    const updateMobile = () => setIsMobile(window.innerWidth <= 960);
-    updateMobile();
-    window.addEventListener("scroll", updateScroll);
-    window.addEventListener("resize", updateMobile);
-    return () => {
-      window.removeEventListener("scroll", updateScroll);
-      window.removeEventListener("resize", updateMobile);
-    };
+    window.addEventListener("scroll", updateScroll, { passive: true });
+    return () => window.removeEventListener("scroll", updateScroll);
   }, []);
 
   const navLinks = [

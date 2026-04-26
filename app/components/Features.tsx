@@ -171,12 +171,13 @@ export default function Features() {
               }}
              >
                 <motion.div 
-                  layoutId={activeImage || undefined}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
                   style={{
                     position: 'relative',
                     width: '100%',
                     height: '100%',
-                    transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                    transition: 'transform 0.35s var(--ease-soft)',
                     transform: `scale(${zoom})`,
                     cursor: zoom > 1 ? 'grab' : 'default',
                     display: 'flex',
@@ -240,14 +241,8 @@ function FeatureSection({ feature, index, onImageClick }: { feature: any; index:
   const isOdd = displayNum % 2 !== 0;
   const imagePath = feature.image;
   const tagColor = tagColors[feature.tag] || "var(--color-primary)";
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  // Removed JS isMobile check to prevent forced reflows and redundant resize listeners
+  // Using pure CSS media queries for responsiveness instead.
 
   // Performance-focused Animation Variants
   const imageVariants = {
@@ -279,7 +274,7 @@ function FeatureSection({ feature, index, onImageClick }: { feature: any; index:
       scale: 1, 
       transition: { 
         duration: ANIMATION_CONFIG.duration, 
-        delay: isMobile ? 0 : 0.1, 
+        delay: index * 0.05, 
         ease: ANIMATION_CONFIG.ease 
       } 
     }
@@ -302,13 +297,11 @@ function FeatureSection({ feature, index, onImageClick }: { feature: any; index:
         style={{ willChange: "transform, opacity" }}
         className="w-[85%] md:w-[32%] relative flex justify-center py-10 mx-auto md:mx-0"
       >
-        {/* Optimized Glow */}
-        {!isMobile && (
-          <div 
-            className="absolute inset-[-40px] opacity-[0.08] pointer-events-none blur-[60px] rounded-full"
-            style={{ background: `radial-gradient(circle, ${tagColor} 0%, transparent 70%)` }}
-          />
-        )}
+        {/* Optimized Glow — Hidden on mobile via CSS class */}
+        <div 
+          className="absolute inset-[-40px] opacity-[0.08] pointer-events-none blur-[60px] rounded-full hidden md:block"
+          style={{ background: `radial-gradient(circle, ${tagColor} 0%, transparent 70%)` }}
+        />
         
         {/* Card Shadow Wrapper */}
         <div style={{ filter: `drop-shadow(0 30px 50px rgba(124, 58, 237, 0.15))` }}>
@@ -331,7 +324,7 @@ function FeatureSection({ feature, index, onImageClick }: { feature: any; index:
                   className="w-full h-auto block object-contain"
                   loading={displayNum <= 2 ? "eager" : "lazy"}
                   priority={displayNum <= 2}
-                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 35vw, 400px"
+                  sizes="(max-width: 768px) 95vw, (max-width: 1200px) 25vw, 380px"
                   onClick={() => onImageClick(imagePath)}
                   style={{ cursor: 'pointer' }}
                 />

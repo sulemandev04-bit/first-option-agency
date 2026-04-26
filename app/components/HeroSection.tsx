@@ -89,9 +89,9 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
 
           {/* Main headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
+            transition={{ duration: 0.4, ease: EASE, delay: 0.01 }}
             style={{
               fontSize: "clamp(1.8rem, 6.5vw, 4.2rem)",
               fontWeight: 900,
@@ -124,9 +124,9 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
           </motion.h1>
 
           <motion.h2
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 5 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, ease: EASE, delay: 0.15 }}
+            transition={{ duration: 0.4, ease: EASE, delay: 0.03 }}
             style={{
               fontSize: "clamp(1rem, 2.8vw, 1.8rem)",
               fontWeight: 800,
