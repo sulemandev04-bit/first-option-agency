@@ -42,7 +42,8 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
             alt="Advanced Marketing Interface backdrop"
             fill
             priority
-            quality={80}
+            quality={75}
+            sizes="100vw"
             style={{ objectFit: "cover", objectPosition: "center", opacity: 0.15 }}
           />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.88) 100%)" }} />

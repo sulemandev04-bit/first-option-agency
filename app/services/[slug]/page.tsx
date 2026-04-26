@@ -68,7 +68,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {/* Left: Image & Benefits */}
               <div>
                 <div style={{ position: "relative", width: "100%", aspectRatio: "16/10", borderRadius: 20, overflow: "hidden", marginBottom: 32, border: "1px solid #E5E7EB" }}>
-                  <Image src={service.image} alt={service.title} fill style={{ objectFit: "cover" }} />
+                  <Image 
+                    src={service.image} 
+                    alt={service.title} 
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{ objectFit: "cover" }} 
+                  />
                 </div>
                 
                 <h3 style={{ fontSize: "1.25rem", fontWeight: 700, color: "#111827", marginBottom: 20 }}>Key Benefits</h3>

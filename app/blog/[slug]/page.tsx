@@ -55,7 +55,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Featured Image */}
           <div style={{ position: "relative", width: "100%", aspectRatio: "16/9", borderRadius: "clamp(16px, 3vw, 32px)", overflow: "hidden", marginBottom: "clamp(30px, 5vw, 60px)", boxShadow: "0 20px 50px rgba(0,0,0,0.1)", background: "#F3F4F6" }}>
-            <Image src={post.image} alt={`${post.title} - Expertise by Faiz Ansari`} fill style={{ objectFit: "contain" }} />
+            <Image 
+              src={post.image} 
+              alt={`${post.title} - Expertise by Faiz Ansari`} 
+              fill 
+              sizes="(max-width: 850px) 100vw, 850px"
+              style={{ objectFit: "contain" }} 
+            />
           </div>
 
           {/* Content */}
@@ -74,7 +80,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 2vw, 24px)", marginTop: 40 }}>
               {post.extraImages.map((img, i) => (
                 <div key={i} style={{ position: "relative", aspectRatio: "4/3", borderRadius: 16, overflow: "hidden", background: "#F3F4F6", border: "1px solid #E5E7EB" }}>
-                  <Image src={img} alt={`${post.title} Strategy Insight by Faiz Ansari`} fill style={{ objectFit: "contain", padding: 8 }} />
+                  <Image 
+                    src={img} 
+                    alt={`${post.title} Strategy Insight by Faiz Ansari`} 
+                    fill 
+                    sizes="(max-width: 850px) 50vw, 400px"
+                    style={{ objectFit: "contain", padding: 8 }} 
+                  />
                 </div>
               ))}
             </div>

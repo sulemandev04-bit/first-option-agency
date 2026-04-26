@@ -323,14 +323,15 @@ function FeatureSection({ feature, index, onImageClick }: { feature: any; index:
             }}
           >
              <div className="relative rounded-[24px] overflow-hidden bg-white shadow-inner">
-               <Image
+                <Image
                   src={imagePath}
                   alt={feature.title}
-                  width={1200}
-                  height={800}
+                  width={800}
+                  height={600}
                   className="w-full h-auto block object-contain"
                   loading={displayNum <= 2 ? "eager" : "lazy"}
                   priority={displayNum <= 2}
+                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 35vw, 400px"
                   onClick={() => onImageClick(imagePath)}
                   style={{ cursor: 'pointer' }}
                 />
