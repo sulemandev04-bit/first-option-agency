@@ -88,10 +88,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
           </motion.div>
 
           {/* Main headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: EASE, delay: 0.01 }}
+          <h1
             style={{
               fontSize: "clamp(1.8rem, 6.5vw, 4.2rem)",
               fontWeight: 900,
@@ -121,12 +118,9 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
             >
               Performance Agency.
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: EASE, delay: 0.03 }}
+          <h2
             style={{
               fontSize: "clamp(1rem, 2.8vw, 1.8rem)",
               fontWeight: 800,
@@ -136,7 +130,7 @@ export default function HeroSection({ onBookDemo }: HeroSectionProps) {
             }}
           >
             We Don’t Just Drive Traffic — We Drive Revenue & Qualified Leads.
-          </motion.h2>
+          </h2>
 
           {/* Paragraph with yellow highlights */}
           <motion.p
