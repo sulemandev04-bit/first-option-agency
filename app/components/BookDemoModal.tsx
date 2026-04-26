@@ -7,9 +7,18 @@ import { useState } from "react";
 interface BookDemoModalProps {
   isOpen: boolean;
   onClose: () => void;
+  title?: string;
+  description?: string;
+  buttonText?: string;
 }
 
-export default function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
+export default function BookDemoModal({ 
+  isOpen, 
+  onClose, 
+  title = "Step into the Future of Growth", 
+  description = "Discover how First Option Agency can build your acquisition system and turn clicks into real revenue on autopilot.", 
+  buttonText = "Start Growth Session" 
+}: BookDemoModalProps) {
   const [focused, setFocused] = useState<string | null>(null);
 
   const stats = [
@@ -58,9 +67,9 @@ export default function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
             {/* Left Side: Info */}
             <div className="modal-left" style={{ padding: "clamp(32px, 5vw, 52px)", background: "linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, transparent 100%)", position: "relative" }}>
                <div className="section-badge" style={{ marginBottom: 24, fontSize: "0.7rem", backgroundColor: 'rgba(37, 99, 235, 0.08)' }}>PRIVATE ACCESS</div>
-               <h2 style={{ fontSize: "clamp(1.5rem, 4vw, 2.2rem)", fontWeight: 800, color: "var(--text-main)", marginBottom: 14, letterSpacing: "-0.04em", lineHeight: 1.1 }}>Step into the <br /> <span className="gradient-text-teal">Future of Growth</span></h2>
+               <h2 style={{ fontSize: "clamp(1.5rem, 4vw, 2.2rem)", fontWeight: 800, color: "var(--text-main)", marginBottom: 14, letterSpacing: "-0.04em", lineHeight: 1.1 }}>{title}</h2>
                <p style={{ color: "var(--text-dim)", fontSize: "clamp(0.78rem, 1.5vw, 0.9rem)", marginBottom: 36, maxWidth: 340, lineHeight: 1.6, fontWeight: 500 }}>
-                 Discover how First Option Agency can build your acquisition system and turn clicks into real revenue on autopilot.
+                 {description}
                </p>
 
                <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -95,7 +104,7 @@ export default function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
 
                  <button
                    className="glow-btn-primary"
-                   aria-label="Submit growth session request"
+                   aria-label="Submit request"
                    style={{ 
                      padding: "clamp(12px, 2vw, 16px)", 
                      borderRadius: "50px", 
@@ -111,7 +120,7 @@ export default function BookDemoModal({ isOpen, onClose }: BookDemoModalProps) {
                      cursor: "pointer"
                    }}
                  >
-                   Start Growth Session
+                   {buttonText}
                    <ArrowRight size={20} strokeWidth={2.5} />
                  </button>
                </form>

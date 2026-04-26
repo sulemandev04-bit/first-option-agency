@@ -45,6 +45,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.8,
     },
+    {
+      url: `${DOMAIN}/funnels`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${DOMAIN}/funnels/alumina-residue`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     ...serviceEntries,
     ...blogEntries,
     ...locationEntries,
