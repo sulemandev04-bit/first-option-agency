@@ -20,25 +20,25 @@ interface Feature {
 
 const features = [
   {
-    id: 1, image: "/service/1.png", tag: "Strategy",
+    id: 1, image: "/service/1.webp", tag: "Strategy",
     title: "Deep Business Audit",
     description: "We analyze your current business position, identify opportunities, and uncover bottlenecks that limit your growth potential. Competitive landscape analysis, conversion rate assessment, and customer journey mapping.",
     icon: <Search size={18} />
   },
   {
-    id: 2, image: "/service/2.png", tag: "Operations",
+    id: 2, image: "/service/2.webp", tag: "Operations",
     title: "Strategic Marketing Operations",
     description: "We execute data-driven campaigns that focus on key performance indicators and strategic business objectives. KPI-focused campaign management, performance tracking & reporting, and target audience segmentation.",
     icon: <Zap size={18} />
   },
   {
-    id: 3, image: "/service/3.png", tag: "Optimization",
+    id: 3, image: "/service/3.webp", tag: "Optimization",
     title: "Sales Funnel Optimisation",
     description: "We design and optimise high-converting sales funnels that turn prospects into customers and maximise your ROI. Conversion-focused landing pages, email automation sequences, and A/B testing & optimisation.",
     icon: <Layout size={18} />
   },
   {
-    id: 4, image: "/service/4.png", tag: "Creative",
+    id: 4, image: "/service/4.webp", tag: "Creative",
     title: "Persuasive Content Creation",
     description: "We develop compelling content that connects with your audience's psychology and drives action. Sales copywriting, social media content planning, and irresistible offer creation.",
     icon: <FileText size={18} />
