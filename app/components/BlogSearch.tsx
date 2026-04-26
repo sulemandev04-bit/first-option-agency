@@ -15,6 +15,7 @@ export default function BlogSearch() {
   const filteredPosts = BLOG_POSTS.filter((post) => {
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                         post.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          post.category.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesTab = activeTab === "All" || post.category === activeTab;
     return matchesSearch && matchesTab;
@@ -108,7 +109,7 @@ export default function BlogSearch() {
                   overflow: "hidden",
                   borderBottom: "1px solid #F3F4F6"
                 }}>
-                  <Image src={post.image} alt={post.title} fill style={{ objectFit: "contain", padding: "12px", transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" }} className="blog-thumb" />
+                  <Image src={post.image} alt={`${post.title} - Expertise by Faiz Ansari`} fill style={{ objectFit: "contain", padding: "12px", transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)" }} className="blog-thumb" />
                   <div style={{ 
                     position: "absolute", 
                     bottom: 16, 
@@ -130,9 +131,13 @@ export default function BlogSearch() {
               </Link>
               
               <div style={{ padding: "28px 24px", flex: 1, display: "flex", flexDirection: "column" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#9CA3AF", fontSize: "0.85rem", marginBottom: 16 }}>
-                  <Calendar size={14} style={{ color: "#6366F1" }} />
-                  {post.date}
+                <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#9CA3AF", fontSize: "0.85rem", marginBottom: 16 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <Calendar size={14} style={{ color: "#6366F1" }} />
+                    {post.date}
+                  </div>
+                  <div style={{ height: 4, width: 4, borderRadius: "50%", background: "#E5E7EB" }} />
+                  <span style={{ fontWeight: 700, color: "#6B7280" }}>{post.author}</span>
                 </div>
                 <h3 style={{ fontSize: "1.45rem", fontWeight: 800, color: "#111827", marginBottom: 12, lineHeight: 1.25, letterSpacing: "-0.02em" }}>
                   <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>

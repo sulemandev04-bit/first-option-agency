@@ -19,9 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "Blog Not Found" };
 
   return {
-    title: `${post.title} | First Option Agency Blog`,
+    title: `${post.title} | Faiz Ansari - First Option Agency`,
     description: post.excerpt,
     keywords: post.keywords.join(", "),
+    authors: [{ name: "Faiz Ansari" }],
   };
 }
 
@@ -54,7 +55,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           {/* Featured Image */}
           <div style={{ position: "relative", width: "100%", aspectRatio: "16/9", borderRadius: "clamp(16px, 3vw, 32px)", overflow: "hidden", marginBottom: "clamp(30px, 5vw, 60px)", boxShadow: "0 20px 50px rgba(0,0,0,0.1)", background: "#F3F4F6" }}>
-            <Image src={post.image} alt={post.title} fill style={{ objectFit: "contain" }} />
+            <Image src={post.image} alt={`${post.title} - Expertise by Faiz Ansari`} fill style={{ objectFit: "contain" }} />
           </div>
 
           {/* Content */}
@@ -73,7 +74,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 2vw, 24px)", marginTop: 40 }}>
               {post.extraImages.map((img, i) => (
                 <div key={i} style={{ position: "relative", aspectRatio: "4/3", borderRadius: 16, overflow: "hidden", background: "#F3F4F6", border: "1px solid #E5E7EB" }}>
-                  <Image src={img} alt={`Insight ${i + 1}`} fill style={{ objectFit: "contain", padding: 8 }} />
+                  <Image src={img} alt={`${post.title} Strategy Insight by Faiz Ansari`} fill style={{ objectFit: "contain", padding: 8 }} />
                 </div>
               ))}
             </div>
@@ -94,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div style={{ marginTop: "clamp(40px, 8vw, 80px)", background: "linear-gradient(135deg, #6D28D9 0%, #4C1D95 100%)", borderRadius: "clamp(20px, 3vw, 32px)", padding: "clamp(32px, 5vw, 48px) clamp(16px, 3vw, 32px)", textAlign: "center", color: "#FFFFFF" }}>
             <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 1.8rem)", fontWeight: 800, marginBottom: 16, color: "#FFFFFF" }}>Want results like these?</h2>
             <p style={{ opacity: 0.9, marginBottom: 32, maxWidth: 500, marginInline: "auto", fontSize: "clamp(0.85rem, 1.2vw, 1rem)" }}>
-              Let&apos;s build your custom performance marketing engine. Book a 30-minute growth session today.
+              Let&apos;s build your custom performance marketing engine. Book a growth session with Faiz Ansari today.
             </p>
             <button className="glow-btn-primary" style={{ background: "#FFF", color: "#7C3AED", padding: "12px 32px", borderRadius: 9999, border: "none", fontWeight: 700, cursor: "pointer", fontSize: "0.85rem" }}>
               BOOK A FREE STRATEGY SESSION

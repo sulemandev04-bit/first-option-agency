@@ -18,13 +18,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Unlock the secrets to scaling your brand internationally with data-driven performance marketing systems that focus on pure revenue.",
     category: "Performance Marketing",
     date: "April 26, 2026",
-    author: "Global Strategist",
+    author: "Faiz Ansari",
     image: "/blog/Top_Performance_Marketing_Strategies_for_Maximum_Global_ROI/global-performance-marketing-strategy-roi.webp",
     extraImages: [
       "/blog/Top_Performance_Marketing_Strategies_for_Maximum_Global_ROI/data-driven-performance-marketing-systems.webp", 
       "/blog/Top_Performance_Marketing_Strategies_for_Maximum_Global_ROI/roi-focused-digital-advertising-optimization.webp"
     ],
-    keywords: ["performance marketing agency ROI", "global performance marketing", "ROAS optimization"],
+    keywords: ["Faiz Ansari", "performance marketing agency ROI", "global performance marketing", "ROAS optimization"],
     content: `
       <h2>The Shift to ROI-First Marketing</h2>
       <p>In 2026, vanity metrics like impressions and clicks are obsolete. Global brands are now prioritizing actual revenue and customer lifetime value (LTV) above all else.</p>
@@ -37,27 +37,27 @@ export const BLOG_POSTS: BlogPost[] = [
     `
   },
   {
-    slug: "b2b-lead-generation-manufacturing-industry",
-    title: "Revolutionizing B2B Lead Generation for the Manufacturing Industry",
-    excerpt: "How traditional manufacturers are using digital-first acquisition models to find global distributors and bulk buyers.",
-    category: "Lead Generation",
-    date: "April 24, 2026",
-    author: "Industry Expert",
-    image: "/blog/Revolutionizing_B2B_Lead_Generation_Manufacturing_Industry/b2b-lead-generation-manufacturing-industry-hero.webp",
+    slug: "conversion-rate-optimization-hacks-2026",
+    title: "10 CRO Hacks to Double Your Conversions Without Increasing Ad Spend",
+    excerpt: "Stop wasting money on traffic that doesn't convert. Use these proven psychology-backed CRO hacks today.",
+    category: "Conversion Optimization",
+    date: "April 15, 2026",
+    author: "Faiz Ansari",
+    image: "/blog/10_CRO_Hacks_Double_Conversions_No_Ad_Spend/conversion-rate-optimization-hacks-2026-hero.webp",
     extraImages: [
-      "/blog/Revolutionizing_B2B_Lead_Generation_Manufacturing_Industry/industrial-marketing-sales-funnel-strategy.webp", 
-      "/blog/Revolutionizing_B2B_Lead_Generation_Manufacturing_Industry/manufacturing-digital-acquisition-system.webp"
+      "/blog/10_CRO_Hacks_Double_Conversions_No_Ad_Spend/cro-landing-page-psychology-strategy.webp", 
+      "/blog/10_CRO_Hacks_Double_Conversions_No_Ad_Spend/conversion-funnel-ab-testing-framework.webp"
     ],
-    keywords: ["SEO for manufacturing companies", "B2B lead generation manufacturers", "industrial marketing sales funnel"],
+    keywords: ["Faiz Ansari", "conversion rate optimization hacks", "landing page CRO strategy", "increase website conversion"],
     content: `
-      <h2>Bridging the Offline-Online Gap in Manufacturing</h2>
-      <p>For manufacturers, the sales cycle is long and trust is the primary currency. Digital transformation in this sector isn't about social media; it's about authoritative presence.</p>
+      <h2>The Science of Choice Architecture</h2>
+      <p>Conversion Rate Optimization (CRO) is about removing friction and guiding the user toward the path of least resistance.</p>
       <ul>
-        <li><strong>Technical Authority SEO:</strong> Ranking for specific SKU-related queries and technical specifications.</li>
-        <li><strong>LinkedIn Account-Based Marketing (ABM):</strong> Reaching the specific decision-makers in global procurement departments.</li>
-        <li><strong>Automated Nurture Sequences:</strong> Keeping your brand top-of-mind during a 6-month industrial buying cycle.</li>
+        <li><strong>Micro-Commitments:</strong> Using multi-step progress bars to lower the perceived effort of completing a form.</li>
+        <li><strong>Authority Triggers:</strong> Placing trust badges and case study snippets exactly at the moment of friction (the CTA).</li>
+        <li><strong>Reduced Cognitive Load:</strong> Removing navigation menus on key landing pages to keep the focus on the primary action.</li>
       </ul>
-      <p>Modern lead generation for B2B involves building a 'Digital Salesman' that works 24/7 to educate and qualify buyers before they even speak to your team.</p>
+      <p>A 1% increase in conversion rate can often impact the bottom line more than a 20% increase in traffic. Optimize your foundation first.</p>
     `
   },
   {
@@ -66,13 +66,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Discover how to capture high-net-worth individuals (HNI) with specialized real estate digital marketing funnels.",
     category: "Real Estate",
     date: "April 22, 2026",
-    author: "Funnel Architect",
+    author: "Faiz Ansari",
     image: "/blog/Creating_High_Converting_Performance_Funnels_Luxury_Real_Estate/luxury-real-estate-performance-funnel-strategy.webp",
     extraImages: [
       "/blog/Creating_High_Converting_Performance_Funnels_Luxury_Real_Estate/high-ticket-property-marketing-funnel.webp", 
       "/blog/Creating_High_Converting_Performance_Funnels_Luxury_Real_Estate/real-estate-digital-acquisition-system-hni.webp"
     ],
-    keywords: ["real estate digital marketing funnel", "luxury real estate leads", "property marketing ROI"],
+    keywords: ["Faiz Ansari", "real estate digital marketing funnel", "luxury real estate leads", "property marketing ROI"],
     content: `
       <h2>Designing for the HNI Mindset</h2>
       <p>Selling a $5M property requires a fundamentally different funnel than selling a $50 subscription. Exclusivity and visual storytelling are your greatest tools.</p>
@@ -90,13 +90,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "A roadmap for SaaS founders to achieve rapid scale using product-led growth and high-performance paid acquisition.",
     category: "SaaS Growth",
     date: "April 20, 2026",
-    author: "SaaS Growth Lead",
+    author: "Faiz Ansari",
     image: "/blog/Ultimate_Guide_Scaling_SaaS_Brands_10M_ARR_2026/saas-scaling-strategy-10m-arr-2026.webp",
     extraImages: [
       "/blog/Ultimate_Guide_Scaling_SaaS_Brands_10M_ARR_2026/saas-growth-marketing-funnel-optimized.webp", 
       "/blog/Ultimate_Guide_Scaling_SaaS_Brands_10M_ARR_2026/beyond-plg-saas-customer-acquisition-system.webp"
     ],
-    keywords: ["SaaS scaling strategies 2026", "product led growth SEO", "SaaS performance marketing"],
+    keywords: ["Faiz Ansari", "SaaS scaling strategies 2026", "product led growth SEO", "SaaS performance marketing"],
     content: `
       <h2>Moving Beyond Product-Led Growth</h2>
       <p>While PLG is the foundation, rapid scaling to $10M ARR requires an aggressive layering of performance marketing and strategic SEO.</p>
@@ -114,10 +114,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "How hospitals and specialty clinics are using local SEO and trust-based marketing to grow their patient base.",
     category: "Healthcare",
     date: "April 18, 2026",
-    author: "Medical Marketing Pro",
-    image: "/service/performance-marketing-agency-roi.webp",
-    extraImages: ["/service/high-converting-sales-funnel-expert.webp", "/service/global-digital-marketing-growth.webp"],
-    keywords: ["healthcare digital marketing trends", "patient acquisition SEO", "medical marketing ROI"],
+    author: "Faiz Ansari",
+    image: "/blog/Top_Healthcare_Digital_Marketing_Trends_Patient_Acquisition/healthcare-digital-marketing-trends-patient-acquisition.webp",
+    extraImages: [
+      "/blog/Top_Healthcare_Digital_Marketing_Trends_Patient_Acquisition/medical-seo-patient-engagement-strategy.webp", 
+      "/blog/Top_Healthcare_Digital_Marketing_Trends_Patient_Acquisition/healthcare-advertising-performance-funnel.webp"
+    ],
+    keywords: ["Faiz Ansari", "healthcare digital marketing trends", "patient acquisition SEO", "medical marketing ROI"],
     content: `
       <h2>The Digital Trust Deficit in Healthcare</h2>
       <p>Patients today research more before booking an appointment than ever before. Your digital presence must command immediate trust and empathy.</p>
@@ -130,24 +133,27 @@ export const BLOG_POSTS: BlogPost[] = [
     `
   },
   {
-    slug: "conversion-rate-optimization-hacks-2026",
-    title: "10 CRO Hacks to Double Your Conversions Without Increasing Ad Spend",
-    excerpt: "Stop wasting money on traffic that doesn't convert. Use these proven psychology-backed CRO hacks today.",
-    category: "Conversion Optimization",
-    date: "April 15, 2026",
-    author: "CRO Expert",
-    image: "/service/global-digital-marketing-growth.webp",
-    extraImages: ["/service/advanced-seo-solutions-agency.webp", "/service/authority-content-marketing-strategy.webp"],
-    keywords: ["conversion rate optimization hacks", "landing page CRO strategy", "increase website conversion"],
+    slug: "b2b-lead-generation-manufacturing-industry",
+    title: "Revolutionizing B2B Lead Generation for the Manufacturing Industry",
+    excerpt: "How traditional manufacturers are using digital-first acquisition models to find global distributors and bulk buyers.",
+    category: "Lead Generation",
+    date: "April 24, 2026",
+    author: "Faiz Ansari",
+    image: "/blog/Revolutionizing_B2B_Lead_Generation_Manufacturing_Industry/b2b-lead-generation-manufacturing-industry-hero.webp",
+    extraImages: [
+      "/blog/Revolutionizing_B2B_Lead_Generation_Manufacturing_Industry/industrial-marketing-sales-funnel-strategy.webp", 
+      "/blog/Revolutionizing_B2B_Lead_Generation_Manufacturing_Industry/manufacturing-digital-acquisition-system.webp"
+    ],
+    keywords: ["Faiz Ansari", "SEO for manufacturing companies", "B2B lead generation manufacturers", "industrial marketing sales funnel"],
     content: `
-      <h2>The Science of Choice Architecture</h2>
-      <p>Conversion Rate Optimization (CRO) is about removing friction and guiding the user toward the path of least resistance.</p>
+      <h2>Bridging the Offline-Online Gap in Manufacturing</h2>
+      <p>For manufacturers, the sales cycle is long and trust is the primary currency. Digital transformation in this sector isn't about social media; it's about authoritative presence.</p>
       <ul>
-        <li><strong>Micro-Commitments:</strong> Using multi-step progress bars to lower the perceived effort of completing a form.</li>
-        <li><strong>Authority Triggers:</strong> Placing trust badges and case study snippets exactly at the moment of friction (the CTA).</li>
-        <li><strong>Reduced Cognitive Load:</strong> Removing navigation menus on key landing pages to keep the focus on the primary action.</li>
+        <li><strong>Technical Authority SEO:</strong> Ranking for specific SKU-related queries and technical specifications.</li>
+        <li><strong>LinkedIn Account-Based Marketing (ABM):</strong> Reaching the specific decision-makers in global procurement departments.</li>
+        <li><strong>Automated Nurture Sequences:</strong> Keeping your brand top-of-mind during a 6-month industrial buying cycle.</li>
       </ul>
-      <p>A 1% increase in conversion rate can often impact the bottom line more than a 20% increase in traffic. Optimize your foundation first.</p>
+      <p>Modern lead generation for B2B involves building a 'Digital Salesman' that works 24/7 to educate and qualify buyers before they even speak to your team.</p>
     `
   },
   {
@@ -156,10 +162,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Learn how to use Facebook, LinkedIn, and YouTube to find clients who spend $50k+ per year.",
     category: "Social Advertising",
     date: "April 12, 2026",
-    author: "Ad Specialist",
-    image: "/service/advanced-seo-solutions-agency.webp",
-    extraImages: ["/service/high-converting-sales-funnel-expert.webp", "/service/performance-marketing-agency-roi.webp"],
-    keywords: ["social media ads for high ticket", "LinkedIn ads ROI", "Facebook ads for B2B"],
+    author: "Faiz Ansari",
+    image: "/blog/Mastering_Social_Media_Ads_High_Ticket_Client_Acquisition/high-ticket-social-media-ads-strategy-hero.webp",
+    extraImages: [
+      "/blog/Mastering_Social_Media_Ads_High_Ticket_Client_Acquisition/meta-linkedIn-ads-hni-targeting-system.webp", 
+      "/blog/Mastering_Social_Media_Ads_High_Ticket_Client_Acquisition/social-media-advertising-roi-growth-funnel.webp"
+    ],
+    keywords: ["Faiz Ansari", "social media ads for high ticket", "LinkedIn ads ROI", "Facebook ads for B2B"],
     content: `
       <h2>The Myth of 'Wrong Platforms' for High-Ticket</h2>
       <p>High-ticket clients are on every social platform; the key is not the platform itself, but the sophistication of the message and targeting.</p>
@@ -177,10 +186,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Transition from a local firm to a global authority with these strategic branding and positioning secrets.",
     category: "Branding",
     date: "April 10, 2026",
-    author: "Brand Strategist",
-    image: "/service/strategic-lead-generation-system.webp",
-    extraImages: ["/service/advanced-seo-solutions-agency.webp", "/service/global-digital-marketing-growth.webp"],
-    keywords: ["global branding for service business", "international agency positioning", "brand authority SEO"],
+    author: "Faiz Ansari",
+    image: "/blog/Global_Branding_Secrets_Position_Agency_Internationally/global-branding-secrets-international-agency-positioning.webp",
+    extraImages: [
+      "/blog/Global_Branding_Secrets_Position_Agency_Internationally/international-marketing-brand-strategy-global.webp", 
+      "/blog/Global_Branding_Secrets_Position_Agency_Internationally/multi-national-service-agency-branding-system.webp"
+    ],
+    keywords: ["Faiz Ansari", "global branding for service business", "international agency positioning", "brand authority SEO"],
     content: `
       <h2>Positioning for the World Stage</h2>
       <p>A global brand doesn't mean having offices everywhere; it means having an authoritative presence that transcends geographic boundaries.</p>
@@ -198,10 +210,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "How to rank your product pages and categories for high-intent keywords that drive sales.",
     category: "E-commerce",
     date: "April 8, 2026",
-    author: "E-com Strategist",
-    image: "/service/authority-content-marketing-strategy.webp",
-    extraImages: ["/service/strategic-lead-generation-system.webp", "/service/high-converting-sales-funnel-expert.webp"],
-    keywords: ["ecommerce performance SEO", "category page optimization", "product SEO ROI"],
+    author: "Faiz Ansari",
+    image: "/blog/Ecommerce_Performance_SEO_Dominating_Commercial_Keywords/ecommerce-performance-seo-dominating-commercial-keywords.webp",
+    extraImages: [
+      "/blog/Ecommerce_Performance_SEO_Dominating_Commercial_Keywords/ecom-search-engine-optimization-conversion-strategy.webp", 
+      "/blog/Ecommerce_Performance_SEO_Dominating_Commercial_Keywords/shopping-ad-optimization-organic-growth-system.webp"
+    ],
+    keywords: ["Faiz Ansari", "ecommerce performance SEO", "category page optimization", "product SEO ROI"],
     content: `
       <h2>The Commercial Intent Engine</h2>
       <p>E-commerce SEO in 2026 is no longer about just 'traffic'; it's about capturing intent at the exact moment of purchase.</p>
@@ -219,10 +234,13 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Master the art of retention-based marketing and learn how to increase the lifetime value of every customer.",
     category: "Data & Metrics",
     date: "April 5, 2026",
-    author: "Data Pro",
-    image: "/service/global-digital-marketing-growth.webp",
-    extraImages: ["/service/authority-content-marketing-strategy.webp", "/service/performance-marketing-agency-roi.webp"],
-    keywords: ["customer lifetime value marketing", "LTV optimization", "retention marketing ROI"],
+    author: "Faiz Ansari",
+    image: "/blog/Why_LTV_is_the_Only_Marketing_Metric_Your_CEO_Cares_About/why-ltv-is-the-only-marketing-metric-your-ceo-cares-about-hero.webp",
+    extraImages: [
+      "/blog/Why_LTV_is_the_Only_Marketing_Metric_Your_CEO_Cares_About/ltv-retention-marketing-strategy.webp", 
+      "/blog/Why_LTV_is_the_Only_Marketing_Metric_Your_CEO_Cares_About/customer-lifetime-value-roi-analysis.webp"
+    ],
+    keywords: ["Faiz Ansari", "customer lifetime value marketing", "LTV optimization", "retention marketing ROI"],
     content: `
       <h2>The Profitability of Retention</h2>
       <p>In a world of rising acquisition costs, the most profitable businesses are those that master the art of keeping and upselling customers.</p>
