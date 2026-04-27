@@ -346,10 +346,10 @@ export default function ContactFooter() {
           {/* Col 1 */}
           <div style={{ maxWidth: 340 }}>
             <Image
-              src="/logo.png"
-              alt="INFIPLUS"
-              width={100}
-              height={32}
+              src="/logo.webp"
+              alt="First Option Agency"
+              width={200}
+              height={200}
               style={{ objectFit: "contain", marginBottom: "clamp(12px, 1.8vw, 18px)" }}
             />
             <p
