@@ -13,26 +13,29 @@ import {
   updateDoc
 } from 'firebase/firestore';
 import { Pencil, Trash2, X } from 'lucide-react';
+import './style.css';
 
+// --- Interface ---
 interface Inquiry {
   id: string;
   name: string;
   company: string;
   contact: string;
-  createdAt: Timestamp; // Aapka column name yahan updated hai
+  createdAt: Timestamp;
 }
 
 export default function InquiryDashboard() {
+  // State with explicit types to avoid 'never' error
   const [inquiries, setInquiries] = useState<Inquiry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
-  const [activeTab, setActiveTab] = useState('All'); 
+  const [loading, setLoading] = useState<boolean>(true);
+  const [startDate, setStartDate] = useState<string>('');
+  const [endDate, setEndDate] = useState<string>('');
+  const [activeTab, setActiveTab] = useState<string>('All'); 
 
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
   const [currentEdit, setCurrentEdit] = useState<Inquiry | null>(null);
 
-  // --- LOGIC: Fetch & Filter (Using createdAt) ---
+  // --- LOGIC: Fetch & Filter ---
   useEffect(() => {
     setLoading(true);
     let q;
@@ -40,7 +43,6 @@ export default function InquiryDashboard() {
     const now = new Date();
     let filterDate: Date | null = null;
 
-    // Preset Filters Logic
     if (activeTab === 'Day') {
       filterDate = new Date(now.setHours(0, 0, 0, 0));
     } else if (activeTab === 'Week') {
@@ -49,12 +51,9 @@ export default function InquiryDashboard() {
       filterDate = new Date(now.setMonth(now.getMonth() - 1));
     }
 
-    // Query Building
     if (activeTab === 'All') {
-      // Default: Show everything ordered by createdAt
       q = query(inquiriesRef, orderBy("createdAt", "desc"));
     } else if (startDate && endDate) {
-      // Custom Date Range
       const s = new Date(startDate);
       const e = new Date(endDate);
       e.setHours(23, 59, 59, 999);
@@ -65,7 +64,6 @@ export default function InquiryDashboard() {
         orderBy("createdAt", "desc")
       );
     } else if (filterDate) {
-      // Day/Week/Month Tabs
       q = query(
         inquiriesRef, 
         where("createdAt", ">=", Timestamp.fromDate(filterDate)),
@@ -113,84 +111,100 @@ export default function InquiryDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="dashboard-wrapper bg-dot-grid">
       {/* --- HEADER --- */}
-      <header className="w-full bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="p-1.5">
-              <img src="/logo.webp" alt="Logo" className="h-8 sm:h-10 w-auto object-contain" />
-            </div>
-            <h1 className="hidden xs:block text-xl font-extrabold tracking-tight text-blue-700">
-              First Option <span className="text-blue-500">Agency</span>
-            </h1>
+      <header className="header-main">
+        <div className="container-header">
+          <div className="header-brand">
+            <img src="/logo.webp" alt="Logo" className="logo-img" />
           </div>
-          <div className="flex items-center gap-3 p-1.5 px-3 rounded-full hover:bg-gray-50 transition-all cursor-pointer">
-            <div className="text-right hidden sm:block">
-              <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none mb-1">Authorized</p>
-              <p className="text-sm font-bold text-gray-800 leading-none">Admin</p>
+          <div className="admin-profile">
+            <div className="admin-info">
+              <span className="admin-status">Authorized</span>
+              <span className="admin-name">Admin</span>
             </div>
-            <div className="w-10 h-10 rounded-full bg-linear-to-tr from-blue-700 to-blue-500 flex items-center justify-center text-white font-bold shadow-md border-2 border-white relative">
+            <div className="avatar">
               A
-              <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+              <span className="status-indicator"></span>
             </div>
           </div>
         </div>
       </header>
 
       {/* --- MAIN --- */}
-      <div className="max-w-7xl mx-auto p-4 md:p-8">
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <main className="container-main">
+        <div className="data-card card-glass">
           
           {/* Filters */}
-          <div className="p-4 md:p-6 border-b border-gray-100 bg-gray-50/50 flex flex-col md:flex-row gap-4 items-end">
-            <div className="flex bg-white border rounded-lg overflow-hidden shrink-0">
-              <button onClick={() => {setActiveTab('All'); setStartDate(''); setEndDate('');}} className={`px-4 py-2 text-sm font-medium border-r hover:bg-gray-50 ${activeTab === 'All' ? 'bg-blue-600 text-white' : ''}`}>All</button>
-              <button onClick={() => {setActiveTab('Day'); setStartDate(''); setEndDate('');}} className={`px-4 py-2 text-sm font-medium border-r hover:bg-gray-50 ${activeTab === 'Day' ? 'bg-blue-50 text-blue-600' : ''}`}>Day</button>
-              <button onClick={() => {setActiveTab('Week'); setStartDate(''); setEndDate('');}} className={`px-4 py-2 text-sm font-medium border-r hover:bg-gray-50 ${activeTab === 'Week' ? 'bg-blue-50 text-blue-600' : ''}`}>Week</button>
-              <button onClick={() => {setActiveTab('Month'); setStartDate(''); setEndDate('');}} className={`px-4 py-2 text-sm font-medium ${activeTab === 'Month' ? 'bg-blue-50 text-blue-600' : ''}`}>Month</button>
+          <div className="filters-row-container card-glass">
+            
+            {/* 1. Preset Tabs */}
+            <div className="filter-group">
+              <div className="tab-group-minimal">
+                {['All', 'Day', 'Week', 'Month'].map(tab => (
+                  <button 
+                    key={tab}
+                    onClick={() => {setActiveTab(tab); setStartDate(''); setEndDate('');}}
+                    className={`tab-btn-mini ${activeTab === tab ? 'active' : ''}`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <div className="flex flex-col gap-1 flex-1 w-full">
-              <label className="text-xs font-bold text-gray-400 uppercase">Start Date</label>
-              <input type="date" value={startDate} className="border rounded-lg p-2 text-sm w-full outline-none focus:ring-2 focus:ring-blue-500/20" onChange={(e) => setStartDate(e.target.value)} />
+            {/* 2. Divider Line */}
+            <div className="filter-divider"></div>
+
+            {/* 3. Start Date */}
+            <div className="filter-group">
+              <div className="input-minimal">
+                <label>From</label>
+                <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+              </div>
             </div>
 
-            <div className="flex flex-col gap-1 flex-1 w-full">
-              <label className="text-xs font-bold text-gray-400 uppercase">End Date</label>
-              <input type="date" value={endDate} className="border rounded-lg p-2 text-sm w-full outline-none focus:ring-2 focus:ring-blue-500/20" onChange={(e) => setEndDate(e.target.value)} />
+            {/* 4. End Date */}
+            <div className="filter-group">
+              <div className="input-minimal">
+                <label>To</label>
+                <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+              </div>
             </div>
 
-            <button onClick={() => setActiveTab('Custom')} className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition w-full md:w-auto shadow-sm">
-              Apply Filter
-            </button>
+            {/* 5. Apply Button */}
+            <div className="filter-group">
+              <button onClick={() => setActiveTab('Custom')} className="glow-btn-primary apply-btn-mini">
+                Apply Filter
+              </button>
+            </div>
+
           </div>
-
           {/* Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+          <div className="table-responsive">
+            <table className="data-table">
               <thead>
-                <tr className="bg-white text-gray-400 text-[10px] uppercase tracking-widest font-black">
-                  <th className="px-6 py-5 border-b">Name</th>
-                  <th className="px-6 py-5 border-b">Company</th>
-                  <th className="px-6 py-5 border-b">Contact</th>
-                  <th className="px-6 py-5 border-b text-center">Action</th>
+                <tr>
+                  <th>Name</th>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th className="text-center">Action</th>
                 </tr>
               </thead>
-              <tbody className="text-gray-700 text-sm">
+              <tbody>
                 {loading ? (
-                  <tr><td colSpan={4} className="text-center py-20 text-gray-400">Loading...</td></tr>
+                  <tr><td colSpan={4} className="empty-state">Loading records...</td></tr>
                 ) : inquiries.length === 0 ? (
-                  <tr><td colSpan={4} className="text-center py-20 text-gray-400">No records found.</td></tr>
+                  <tr><td colSpan={4} className="empty-state">No inquiries found.</td></tr>
                 ) : inquiries.map((item) => (
-                  <tr key={item.id} className="hover:bg-gray-50/50 transition border-b border-gray-50">
-                    <td className="px-6 py-4 font-bold text-gray-900">{item.name}</td>
-                    <td className="px-6 py-4"><span className="bg-gray-100 text-gray-600 text-[11px] px-2 py-1 rounded border border-gray-200">{item.company}</span></td>
-                    <td className="px-6 py-4 text-blue-600 italic font-semibold">{item.contact}</td>
-                    <td className="px-6 py-4">
-                      <div className="flex justify-center gap-2">
-                        <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-full" onClick={() => { setCurrentEdit(item); setIsEditModalOpen(true); }}><Pencil size={18} /></button>
-                        <button className="p-2 text-red-500 hover:bg-red-50 rounded-full" onClick={() => handleDelete(item.id, item.name)}><Trash2 size={18} /></button>
+                  <tr key={item.id} className="table-row">
+                    <td className="cell-name">{item.name}</td>
+                    <td className="cell-company"><span className="badge-company">{item.company}</span></td>
+                    <td className="cell-contact">{item.contact}</td>
+                    <td className="cell-actions">
+                      <div className="action-btns">
+                        <button className="btn-icon edit" onClick={() => { setCurrentEdit(item); setIsEditModalOpen(true); }}><Pencil size={18} /></button>
+                        <button className="btn-icon delete" onClick={() => handleDelete(item.id, item.name)}><Trash2 size={18} /></button>
                       </div>
                     </td>
                   </tr>
@@ -199,32 +213,32 @@ export default function InquiryDashboard() {
             </table>
           </div>
         </div>
-      </div>
+      </main>
 
       {/* --- EDIT MODAL --- */}
       {isEditModalOpen && currentEdit && (
-        <div className="fixed inset-0 z-999 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md">
-            <div className="p-6 border-b flex justify-between items-center">
-              <h3 className="font-black text-gray-800 uppercase tracking-tight text-lg">Edit Inquiry</h3>
-              <button onClick={() => setIsEditModalOpen(false)} className="text-gray-400 hover:text-gray-800"><X size={20} /></button>
+        <div className="modal-backdrop">
+          <div className="modal-content card-glass">
+            <div className="modal-header">
+              <h3>Edit Inquiry</h3>
+              <button className="close-btn" onClick={() => setIsEditModalOpen(false)}><X size={20} /></button>
             </div>
-            <form onSubmit={handleUpdate} className="p-6 space-y-4">
-              <div>
-                <label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">Name</label>
-                <input type="text" value={currentEdit.name} onChange={(e) => setCurrentEdit({...currentEdit, name: e.target.value})} className="w-full border border-gray-200 rounded-xl p-3 text-sm outline-none focus:border-blue-600" required />
+            <form onSubmit={handleUpdate} className="modal-form">
+              <div className="form-field">
+                <label>Name</label>
+                <input type="text" value={currentEdit.name} onChange={(e) => setCurrentEdit({...currentEdit, name: e.target.value})} required />
               </div>
-              <div>
-                <label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">Company</label>
-                <input type="text" value={currentEdit.company} onChange={(e) => setCurrentEdit({...currentEdit, company: e.target.value})} className="w-full border border-gray-200 rounded-xl p-3 text-sm outline-none focus:border-blue-600" required />
+              <div className="form-field">
+                <label>Company</label>
+                <input type="text" value={currentEdit.company} onChange={(e) => setCurrentEdit({...currentEdit, company: e.target.value})} required />
               </div>
-              <div>
-                <label className="text-[10px] font-black text-gray-400 uppercase mb-1 block">Contact</label>
-                <input type="text" value={currentEdit.contact} onChange={(e) => setCurrentEdit({...currentEdit, contact: e.target.value})} className="w-full border border-gray-200 rounded-xl p-3 text-sm outline-none focus:border-blue-600" required />
+              <div className="form-field">
+                <label>Contact</label>
+                <input type="text" value={currentEdit.contact} onChange={(e) => setCurrentEdit({...currentEdit, contact: e.target.value})} required />
               </div>
-              <div className="flex gap-3 pt-2">
-                <button type="button" onClick={() => setIsEditModalOpen(false)} className="flex-1 py-3 bg-gray-100 text-gray-600 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-gray-200">Cancel</button>
-                <button type="submit" className="flex-1 py-3 bg-blue-700 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-blue-800 shadow-lg shadow-blue-700/20">Update</button>
+              <div className="modal-actions">
+                <button type="button" className="btn-cancel" onClick={() => setIsEditModalOpen(false)}>Cancel</button>
+                <button type="submit" className="glow-btn-primary">Update</button>
               </div>
             </form>
           </div>
