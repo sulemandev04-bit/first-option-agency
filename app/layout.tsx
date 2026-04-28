@@ -67,9 +67,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               "name": "First Option Agency",
-              "url": "https://firstoptionagency.com",
-              "logo": "https://firstoptionagency.com/meta-logo.webp",
-              "image": "https://firstoptionagency.com/og-image.webp",
+              "url": "https://www.firstoptionagency.com",
+              "logo": "https://www.firstoptionagency.com/meta-logo.webp",
+              "image": "https://www.firstoptionagency.com/og-image.webp",
               "description": "Leading ROI-driven Performance Marketing Agency specializing in lead generation, sales funnels, and SEO for B2B and High-End services.",
               "address": {
                 "@type": "PostalAddress",
