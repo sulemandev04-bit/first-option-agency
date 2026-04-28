@@ -328,13 +328,22 @@
 }
 
 .btn-cancel {
-  flex: 1;
   background: #f1f5f9;
   border: none;
-  padding: 14px;
+  width: 50%;
+  padding: 10px;
   border-radius: var(--radius-md);
   font-weight: 700;
   cursor: pointer;
+}
+.upbtn{
+  border: none;
+  width: 50%;
+  padding: 10px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  color: white;
 }
 
 .empty-state {

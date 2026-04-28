@@ -238,7 +238,7 @@ export default function InquiryDashboard() {
               </div>
               <div className="modal-actions">
                 <button type="button" className="btn-cancel" onClick={() => setIsEditModalOpen(false)}>Cancel</button>
-                <button type="submit" className="glow-btn-primary">Update</button>
+                <button type="submit" className="glow-btn-primary upbtn">Update</button>
               </div>
             </form>
           </div>
