@@ -10,16 +10,20 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.firstoptionagency.com"),
   title: "ROI-driven Performance Marketing Agency | First Option",
   description:
     "Leading Performance Marketing Agency specializing in ROI-driven lead generation, sales funnels, and SEO for Manufacturers, IT Companies, and Healthcare across the globe.",
   keywords:
     "performance marketing agency, best SEO agency, lead generation company, sales funnel expert, ROI marketing, First Option Agency",
   authors: [{ name: "First Option Agency" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "First Option Agency | Global ROI-driven Performance Marketing",
     description: "Build high-conversion marketing funnels and ROI-driven ad strategies for predictable business growth worldwide.",
-    url: "https://firstoptionagency.com",
+    url: "https://www.firstoptionagency.com",
     siteName: "First Option Agency",
     images: [
       {
