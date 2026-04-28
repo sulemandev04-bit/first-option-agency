@@ -5,6 +5,7 @@
    Font: Outfit (Ultra-Modern, Compact, Professional)
    Aesthetic: Precision SaaS + Micro-Dense Layout
    ═══════════════════════════════════════════════════════════════ */
+   @source "./**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
   /* ── Font ── */
@@ -54,11 +55,19 @@
 }
 
 /* ─── RESET ─── */
-*, *::before, *::after {
+ /* *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}  */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    /* Margin/Padding Tailwind khud handle karta hai, isliye yahan skip karein */
+  }
 }
+
 
 html {
   scroll-behavior: smooth;

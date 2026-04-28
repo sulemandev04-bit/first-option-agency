@@ -1,5 +1,6 @@
 "use client";
 
+import { submitInquiry } from "@/lib/firebase-util";
 import { motion, useInView } from "framer-motion";
 import {
   Mail, MapPin, Phone, ArrowRight,
@@ -38,6 +39,30 @@ export default function ContactFooter() {
       color: "var(--color-accent)",
     },
   ];
+
+  const [loading, setLoading] = useState(false);
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  
+  // 1. Form ka reference pehle hi save kar lein
+  const form = e.currentTarget; 
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    setLoading(true);
+    await submitInquiry(data);
+    
+    // 2. Ab 'form' variable use karein, 'e.target' nahi
+    form.reset(); 
+    alert("We Will Contact You Soon!");
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <footer
@@ -260,12 +285,12 @@ export default function ContactFooter() {
               Our strategy team responds within 24 hours.
             </p>
 
-            <form style={{ display: "flex", flexDirection: "column", gap: "clamp(12px, 2vw, 18px)" }}>
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "clamp(12px, 2vw, 18px)" }}>
               <div className="form-row">
-                <FormInput label="Full Name" type="text" id="name" placeholder="John Doe" focused={focused === "name"} onFocus={() => setFocused("name")} onBlur={() => setFocused(null)} />
-                <FormInput label="Work Email" type="email" id="email" placeholder="john@agency.com" focused={focused === "email"} onFocus={() => setFocused("email")} onBlur={() => setFocused(null)} />
+                <FormInput label="Full Name" type="text" id="name" name="name" placeholder="John Doe" focused={focused === "name"} onFocus={() => setFocused("name")} onBlur={() => setFocused(null)} />
+                <FormInput label="Work Email" type="email" id="email" name="email" placeholder="john@agency.com" focused={focused === "email"} onFocus={() => setFocused("email")} onBlur={() => setFocused(null)} />
               </div>
-              <FormInput label="Company Name" type="text" id="subject" placeholder="Your Business Name" focused={focused === "subject"} onFocus={() => setFocused("subject")} onBlur={() => setFocused(null)} />
+              <FormInput label="Company Name" type="text" id="subject" name="subject" placeholder="Your Business Name" focused={focused === "subject"} onFocus={() => setFocused("subject")} onBlur={() => setFocused(null)} />
 
               <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                 <label
@@ -283,6 +308,7 @@ export default function ContactFooter() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   placeholder="Tell us about your requirements..."
                   onFocus={() => setFocused("message")}
                   onBlur={() => setFocused(null)}
@@ -516,7 +542,7 @@ export default function ContactFooter() {
 }
 
 function FormInput({
-  label, type, id, placeholder, focused, onFocus, onBlur,
+  label, type, id , name , placeholder, focused, onFocus, onBlur,
 }: any) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -536,6 +562,7 @@ function FormInput({
       <input
         type={type}
         id={id}
+        name={name}
         placeholder={placeholder}
         onFocus={onFocus}
         onBlur={onBlur}

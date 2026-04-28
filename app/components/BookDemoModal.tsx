@@ -1,5 +1,6 @@
 "use client";
 
+import { submitInquiry } from "@/lib/firebase-util";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, User, Mail, Building, ArrowRight, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
@@ -26,6 +27,30 @@ export default function BookDemoModal({
     { label: "Implementation", value: "3-5 Days" },
     { label: "Growth Result", value: "Qualified" },
   ];
+
+   const [loading, setLoading] = useState(false);
+  
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    // 1. Form ka reference pehle hi save kar lein
+    const form = e.currentTarget; 
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+  
+    try {
+      setLoading(true);
+      await submitInquiry(data);
+      
+      // 2. Ab 'form' variable use karein, 'e.target' nahi
+      form.reset(); 
+      alert("We Will Contact You Soon!");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -97,10 +122,10 @@ export default function BookDemoModal({
                  <X size={28} />
                </button>
 
-               <form style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-                 <ModalInput label="Full Name" icon={<User size={18} />} type="text" id="name" placeholder="John Doe" focused={focused==="name"} onFocus={()=>setFocused("name")} onBlur={()=>setFocused(null)} />
-                 <ModalInput label="Website / Company" icon={<Building size={18} />} type="text" id="address" placeholder="www.yourname.com" focused={focused==="address"} onFocus={()=>setFocused("address")} onBlur={()=>setFocused(null)} />
-                 <ModalInput label="Contact Number" icon={<Mail size={18} />} type="text" id="phone" placeholder="+91 XXXX XXXX XXX" focused={focused==="phone"} onFocus={()=>setFocused("phone")} onBlur={()=>setFocused(null)} />
+               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+                 <ModalInput label="Full Name" icon={<User size={18} />} type="text" id="name" name="name" placeholder="John Doe" focused={focused==="name"} onFocus={()=>setFocused("name")} onBlur={()=>setFocused(null)} />
+                 <ModalInput label="Website / Company" icon={<Building size={18} />} type="text" id="address" name="company" placeholder="www.yourname.com" focused={focused==="address"} onFocus={()=>setFocused("address")} onBlur={()=>setFocused(null)} />
+                 <ModalInput label="Contact Number" icon={<Mail size={18} />} type="text" id="phone" name="contact" placeholder="+91 XXXX XXXX XXX" focused={focused==="phone"} onFocus={()=>setFocused("phone")} onBlur={()=>setFocused(null)} />
 
                  <button
                    className="glow-btn-primary"
@@ -151,7 +176,7 @@ export default function BookDemoModal({
   );
 }
 
-function ModalInput({ label, icon, type, id, placeholder, focused, onFocus, onBlur }: any) {
+function ModalInput({ label, icon, type, id, name, placeholder, focused, onFocus, onBlur }: any) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       <label htmlFor={id} style={{ fontSize: "0.85rem", fontWeight: 700, color: focused ? "var(--color-primary)" : "var(--text-dim)", transition: "all 0.3s ease" }}>{label}</label>
@@ -159,7 +184,8 @@ function ModalInput({ label, icon, type, id, placeholder, focused, onFocus, onBl
         <div style={{ position: "absolute", left: 24, top: "50%", transform: "translateY(-50%)", color: focused ? "var(--color-primary)" : "var(--text-muted)", transition: "all 0.3s ease" }}>{icon}</div>
         <input 
           type={type} 
-          id={id} 
+          id={id}
+          name={name} 
           placeholder={placeholder}
           onFocus={onFocus}
           onBlur={onBlur}

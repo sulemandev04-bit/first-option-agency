@@ -23,6 +23,7 @@ export default function Navbar({ onBookDemo = () => {} }: NavbarProps) {
     { title: "Home", href: "/" },
     { title: "Services", href: "/services" },
     { title: "Blog", href: "/blog" },
+    { title: "Dashboard", href: "/dashboard" },
     { title: "Contact", href: "/#contact" },
   ];
 
